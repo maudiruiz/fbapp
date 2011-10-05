@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @proyecto.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @proyecto.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @proyecto.image_url %>
+</p>
+
+<p>
+  <b>Type pr:</b>
+  <%= @proyecto.type_pr %>
+</p>
+<p>
+  <b> Se utilizó</b>
+  <%= @proyecto.tag_list %>
+</p>
+  <b> Liga al Proyecto</b>
+  <%= @proyecto.proyecto_url %>
+</p>
+ 
+
+<%= link_to 'Edit', edit_proyecto_path(@proyecto) %> |
+<%= link_to 'Back', admin_path %>

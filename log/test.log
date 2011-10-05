@@ -1,0 +1,121 @@
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "proyectos"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "proyectos" ("type_pr", "name", "created_at", "image_url", "updated_at", "id", "description") VALUES ('MyString', 'MyString', '2011-10-05 14:07:22', 'MyString', '2011-10-05 14:07:22', 298486374, 'MyText')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "proyectos" ("type_pr", "name", "created_at", "image_url", "updated_at", "id", "description") VALUES ('MyString', 'MyString', '2011-10-05 14:07:22', 'MyString', '2011-10-05 14:07:22', 980190962, 'MyText')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("salt", "name", "created_at", "updated_at", "hashed_password", "id") VALUES ('MyString', 'MyString', '2011-10-05 14:07:22', '2011-10-05 14:07:22', 'MyString', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("salt", "name", "created_at", "updated_at", "hashed_password", "id") VALUES ('MyString', 'MyString', '2011-10-05 14:07:22', '2011-10-05 14:07:22', 'MyString', 980190962)
+  Processing by DisplayController#index as HTML
+  [1m[36mProyecto Load (0.3ms)[0m  [1mSELECT "proyectos".* FROM "proyectos" ORDER BY created_at desc LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "proyectos" 
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 298486374 AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+Rendered display/index.html.erb within layouts/application (74.3ms)
+Completed 200 OK in 83ms (Views: 81.4ms | ActiveRecord: 0.8ms)
+  [1m[35mProyecto Load (0.2ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "proyectos" [0m
+  Processing by ProyectosController#create as HTML
+  Parameters: {"proyecto"=>{"type_pr"=>"MyString", "name"=>"MyString", "proyecto_url"=>nil, "created_at"=>"2011-10-05 14:07:22 UTC", "image_url"=>"MyString", "updated_at"=>"2011-10-05 14:07:22 UTC", "id"=>"980190962", "description"=>"MyText"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" IS NULL AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Rendered proyectos/_form.html.erb (6.3ms)
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "proyectos" [0m
+  [1m[35mProyecto Load (0.1ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "proyectos" [0m
+  Processing by ProyectosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProyecto Load (0.1ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mActsAsTaggableOn::Tagging Load (0.1ms)[0m  SELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = 980190962 AND "taggings"."taggable_type" = 'Proyecto'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "taggings"."id" AS t0_r0, "taggings"."tag_id" AS t0_r1, "taggings"."taggable_id" AS t0_r2, "taggings"."taggable_type" AS t0_r3, "taggings"."tagger_id" AS t0_r4, "taggings"."tagger_type" AS t0_r5, "taggings"."context" AS t0_r6, "taggings"."created_at" AS t0_r7, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1 FROM "taggings" LEFT OUTER JOIN "tags" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 980190962 AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.tag_id = tags.id AND taggings.context = 'tags')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "taggings"."id" AS t0_r0, "taggings"."tag_id" AS t0_r1, "taggings"."taggable_id" AS t0_r2, "taggings"."taggable_type" AS t0_r3, "taggings"."tagger_id" AS t0_r4, "taggings"."tagger_type" AS t0_r5, "taggings"."context" AS t0_r6, "taggings"."created_at" AS t0_r7, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1 FROM "taggings" LEFT OUTER JOIN "tags" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 980190962 AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.tag_id = tags.id AND taggings.context = 'skills')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "taggings"."id" AS t0_r0, "taggings"."tag_id" AS t0_r1, "taggings"."taggable_id" AS t0_r2, "taggings"."taggable_type" AS t0_r3, "taggings"."tagger_id" AS t0_r4, "taggings"."tagger_type" AS t0_r5, "taggings"."context" AS t0_r6, "taggings"."created_at" AS t0_r7, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1 FROM "taggings" LEFT OUTER JOIN "tags" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 980190962 AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.tag_id = tags.id AND taggings.context = 'interests')[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "proyectos" WHERE "proyectos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/proyectos
+Completed 302 Found in 13ms
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "proyectos" 
+  [1m[36mProyecto Load (0.1ms)[0m  [1mSELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Processing by ProyectosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProyecto Load (0.1ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 980190962 AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+Rendered proyectos/_form.html.erb (5.8ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+  [1m[35mProyecto Load (0.1ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Processing by ProyectosController#index as HTML
+  [1m[36mProyecto Load (0.1ms)[0m  [1mSELECT "proyectos".* FROM "proyectos" [0m
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.1ms)
+  [1m[35mProyecto Load (0.1ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Processing by ProyectosController#new as HTML
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" IS NULL AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+Rendered proyectos/_form.html.erb (5.1ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms)
+  [1m[35mProyecto Load (0.1ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Processing by ProyectosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProyecto Load (0.0ms)[0m  [1mSELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 980190962 AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.2ms)
+  [1m[36mProyecto Load (0.1ms)[0m  [1mSELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Processing by ProyectosController#update as HTML
+  Parameters: {"id"=>"980190962", "proyecto"=>{"type_pr"=>"MyString", "name"=>"MyString", "proyecto_url"=>nil, "created_at"=>"2011-10-05 14:07:22 UTC", "image_url"=>"MyString", "updated_at"=>"2011-10-05 14:07:22 UTC", "id"=>"980190962", "description"=>"MyText"}}
+  [1m[35mProyecto Load (0.1ms)[0m  SELECT "proyectos".* FROM "proyectos" WHERE "proyectos"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 980190962 AND "taggings"."taggable_type" = 'Proyecto' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendered proyectos/_form.html.erb (5.2ms)
+Completed 200 OK in 14ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"salt"=>"MyString", "name"=>"MyString", "created_at"=>"2011-10-05 14:07:22 UTC", "updated_at"=>"2011-10-05 14:07:22 UTC", "hashed_password"=>"[FILTERED]", "id"=>"980190962"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE "users"."name" = 'MyString' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Rendered users/_form.html.erb (2.8ms)
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 2ms
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+Rendered users/_form.html.erb (1.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (1.6ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  Processing by UsersController#update as HTML
+  Parameters: {"id"=>"980190962", "user"=>{"salt"=>"MyString", "name"=>"MyString", "created_at"=>"2011-10-05 14:07:22 UTC", "updated_at"=>"2011-10-05 14:07:22 UTC", "hashed_password"=>"[FILTERED]", "id"=>"980190962"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."name" = 'MyString' AND "users"."id" != 980190962) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Rendered users/_form.html.erb (2.0ms)
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 0.2ms)

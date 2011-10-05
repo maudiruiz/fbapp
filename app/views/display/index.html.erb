@@ -1,0 +1,14 @@
+<h1>Innku</h1><br>
+<% @proyectos.each do |proyectos| %>
+  <tr>
+    <h3> <a href="<%= proyectos.proyecto_url %>"><td><%= proyectos.name %></td><br></a></h3>
+    <td><%= proyectos.description %></td><br>
+ <a href="<%= proyectos.proyecto_url %>">
+<%= image_tag(proyectos.image_url) %></a>
+
+
+<td><%= proyectos.tag_list %></td><br>
+    <td><%= proyectos.type_pr %></td><br>
+<br>
+<% end %>
+<%= will_paginate @proyectos	, :page_links => false %>

@@ -1,0 +1,16 @@
+<div class="depot_form"> <%= form_tag do %>
+<fieldset>
+<legend>Ingresa al sistema </legend>
+<div>
+<label for="name">Usuario:</label>
+ <%= text_field_tag :name, params[:name] %>
+</div>
+<div>
+<label for="password">Contraseña:</label>
+<%= password_field_tag :password, params[:password] %>
+</div>
+<div>
+<%= submit_tag "Iniciar Sesión" %>
+      </div>
+    </fieldset>
+<% end %> </div>

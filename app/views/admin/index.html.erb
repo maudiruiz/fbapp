@@ -1,0 +1,49 @@
+<h1>Bienvenido <%=  %></h1>
+<!-- Son las <%= Time.now %><br> -->
+Tenemos <b><%= pluralize(@total_proyectos, "proyecto") %></b> mostrandose en la aplicación en Facebook.
+<h1>Listado de proyectos</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Image url</th>
+    <th>Type pr</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @proyectos.each do |proyecto| %>
+  <tr>
+    <td><%= proyecto.name %></td>
+    <td><%= proyecto.description %></td>
+    <td><%= proyecto.image_url %></td>
+    <td><%= proyecto.type_pr %></td>
+    <td><%= link_to 'Mostrar', proyecto %></td>
+    <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
+    <td><%= link_to 'Eliminar', proyecto, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<b><%= link_to 'Nuevo Proyecto', new_proyecto_path %></b>
+<% if session[:user_id] %> <br />
+<br />
+<h1>Usuarios <%=  %></h1>
+<% @users.each do |user| %> <tr>
+<td><%= user.name %></td>
+<td><%= link_to 'Mostrar', user %></td>
+<td><%= link_to 'Editar', edit_user_path(user) %></td>
+<td><%= link_to 'Eliminar', user, :confirm => 'Are you sure?',
+:method => :delete %></td> </tr><br>
+<% end %> </table>
+<br />
+<b><%= link_to 'Nuevo Usuario', new_user_path %></b>
+<br>
+<br>
+
+<%= button_to 'Cerrar Sesión', logout_path, :method => :delete %> 
+<% end %>
